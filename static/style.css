@@ -1,0 +1,169 @@
+body{
+    margin: 0;
+    padding: 0;
+    background: #0a3422;
+    font-family: Arial;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+
+.container{
+    text-align: center;
+    color: rgb(187, 207, 197);
+    background: rgb(5, 62, 40);
+    padding: 40px;
+    border-radius: 20px;
+    width: 400px;
+}
+
+h1{
+    font-size: 35px;
+}
+
+
+p{
+    margin-bottom: 25px;
+}
+
+
+input{
+    width: 90%;
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+
+button{
+    padding: 15px 30px;
+    border: none;
+    border-radius: 10px;
+    background: #00c37a;
+    color: rgba(255, 255, 255, 0.574);
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.container{
+    width: 80%;
+    max-width: 800px;
+    margin: 40px auto;
+    background: rgb(1, 25, 13);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+
+h1{
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.back-btn{
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: #a0dcc19b;
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+}
+
+.result-page{
+    background: #0a3422;
+}
+
+.result-page .container{
+    width: 80%;
+    max-width: 800px;
+    margin: 80px auto 40px auto;
+    background: rgb(1, 25, 13);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.2);
+    overflow: hidden;
+}
+
+.info-box{
+    background: rgba(255, 255, 255, 0.08);
+    padding: 20px;
+    margin: 15px 0;
+    border-radius: 15px;
+}
+
+.info-box strong{
+    color:#00c37a;
+    display: block;
+    margin-bottom: 8px;
+    font-size: 18px;
+}
+
+.info-box p{
+    margin: 0;
+    word-break: break-all;
+}
+
+h3{
+    text-align: center;
+    margin-top: 25px;
+    margin-bottom: 15px;
+    color:white;
+}
+
+.back-btn{
+    display: inline-block;
+    margin-top: 25px;
+    padding: 12px 25px;
+    background: #00c37a;
+    color: rgb(12, 51, 39);
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.back-btn:hover{
+    transform: scale(1.05);
+}
+
+.risk-bar{
+    width: 100%;
+    height: 30px;
+    background: #2f4f4f;
+    border-radius: 20px;
+    overflow: hidden;
+    margin: 20px 0;
+}
+
+.risk-fill{
+    height: 100%;
+    text-align: center;
+    line-height: 30px;
+    color: white;
+    font-weight: bold;
+    border-radius: 20px;
+}
+
+.verdict-box{
+    margin: 20px 0;
+    padding: 15px;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+#loading{
+    margin-top: 20px;
+    color: #00c37a;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.result-page{
+    display: block;
+    height: 100vh;
+    min-height: 100vh;
+}

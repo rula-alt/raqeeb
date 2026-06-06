@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ar">
+    <head>
+        <meta charset="UTF-8" />
+        <title>نتائج الفحص</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+    </head>
+
+    <body class="result-page">
+        <div class="container">
+
+            <h1>🛡️ نتائج الفحص</h1>
+
+            <div class="info-box">
+                <strong>الرابط:</strong>
+                <p>{{ url }}</p>
+            </div>
+
+            <div class="info-box">
+                <strong>الدومين:</strong>
+                <p>{{ domain }}</p>
+            </div>
+
+            <div class="info-box">
+                <strong>الحالة:</strong>
+                <p>{{ status }}</p>
+            </div> 
+
+            <h3>
+            %{{ risk }} : مستوى الخطر ⚠️ 
+            </h3>
+
+            <div class="risk-bar">
+                <div class="risk-fill"
+                     id="riskFill"
+                     data-risk="{{ risk }}"
+                     style="width: 0%; background-color: {{ color }};">
+
+                     <span id="riskNumber">0%</span>
+                </div>
+            </div>
+
+            <div class="verdict-box">
+                <h2 style="color:{{ color }};">
+                    {{ verdict }}
+                </h2>
+            </div>
+
+            <div class="info-box"
+                <h2>التحليل الذكي</h2>
+                <p>{{ ai_analysis }}</p>
+            </div>
+
+            <div class="info-box">
+                <h2> التوصيات </h2>
+                <p>{{ recommendation}}</p>
+            </div>
+
+            <div class="info-box"
+                <h2>مستوى الثقة </h2>
+
+                {% if risk == 0 %}
+                    <p>100 / 100</p>
+                {% elif risk <= 30 %}
+                    <p>85 / 100</p>
+                {% elif risk <= 60 %}
+                    <p>60 / 100</p>
+                {% else %}
+                    <p>10 / 100</p>
+                {% endif %}
+            </div>
+
+            <div class="info-box">
+                <h2>أسباب الخطر</h2>
+                {% if risk == 0 %}
+                <p>✅ لم يتم اكتشاف أي مؤشرات خطورة معروفة في هذا الرابط.</p>
+                <p>🔒 يستخدم بروتوكول HTTPS بشكل صحيح.</p>
+                <p>🛡️ لا توجد كلمات أو أنماط مشبوهة تم رصدها.</p>
+                {% endif %}
+
+                <p>{{ reason }}</p>
+
+                <ul>
+                    {% for reason in reasons %}
+                        <li>{{ reason }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <div class="info-box">
+                <h2> آخر الروابط المفحوصة</h2>
+
+                <p>{{ url }}</p>
+                <p>{{ history }}</p>
+
+                <ul>
+                    {% for item in history %}
+                        <li>
+                            {{ item.url }}<br>
+                            <small>{{item.time }}</small>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <a href="/" class="back-btn">فحص رابط آخر</a>
+            <button onclick="window.print()" class="back-btn">PDFتحميل التقرير </button>
+
+        </div>
+        
+        <script>
+        let riskElement = document.getElementById("riskNumber");
+        let riskFill = document.getElementById("riskFill");
+
+        let target = parseInt(riskFill.getAttribute("data-risk"));
+        let current = 0;
+
+        let timer = setInterval(() => {
+
+            riskElement.innerText = current + "%";
+            riskFill.style.width = current + "%";
+
+            if (current >= target) {
+                clearInterval(timer);
+             }
+
+            current++;
+
+        }, 20);
+        </script>
+
+    </body>
+</html>

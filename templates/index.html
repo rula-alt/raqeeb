@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>رقيب | Raqeeb</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>رقيب | Raqeeb</h1>
+        <p>منصة لفحص المواقع الإلكترونية وإكتشاف الثغرات الأمنية.</p>
+        <form action="/scan" method="post">
+            <input type="text" name="url" placeholder="أدخل الرابط" required />
+            <button type="submit" class="button" onclick="showLoading()">إفحص</button>
+        </form>
+    <div id="loading" style="display:none;">
+        <p>⏳ يرجى الانتظار، يتم فحص الموقع ...</p>
+    </div>
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
